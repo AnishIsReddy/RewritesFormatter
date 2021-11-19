@@ -6,6 +6,7 @@ import time
 # Input email and password
 email = input("Enter your full student email (With domain): ")
 password = input("Enter Password: ")
+link = input("Enter the URL to your psych test: ")
 
 # Navigate to the page
 driver = webdriver.Chrome('chromedriver.exe')
@@ -14,7 +15,7 @@ driver.find_element(By.ID, 'identifierId').send_keys(email + Keys.ENTER)
 time.sleep(2)
 driver.find_element(By.NAME, 'password').send_keys(password + Keys.ENTER)
 time.sleep(3)
-driver.get('https://novi.schoology.com/course/5271406554/assessments/5431908349')
+driver.get(link)
 time.sleep(3)
 driver.find_element(By.PARTIAL_LINK_TEXT, 'View').click()
 time.sleep(3)
