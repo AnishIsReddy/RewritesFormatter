@@ -5,6 +5,6 @@ Requirements:
 Latest version of Google Chrome
 
 Instructions:
-<a download="dist.zip">Downlad dist.zip</a>, extract, and run PsychRewritesFormatter.exe
+[Downlad dist.zip](dist.zip), extract, and run PsychRewritesFormatter.exe
 
 DISCLAIMER: I do not own Chrome, Chromedriver, Python, or Selenium. Please don't sue me.
