@@ -1,12 +1,52 @@
+from typing import Text
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
+import graphics
+import math
 
-# Input email and password
-email = input("Enter your full student email (With domain): ")
-password = input("Enter Password: ")
-link = input("Enter the URL to your psych test: ")
+# Create input window
+win = graphics.GraphWin(title="Rewrites Input", width=500, height=200)
+domain = graphics.Text(graphics.Point(355, 25), "@stu.novik12.org")
+EmailLabel = graphics.Text(graphics.Point(80, 25), "Email:")
+PasswordLabel = graphics.Text(graphics.Point(64, 75), "Password:")
+LinkLabel = graphics.Text(graphics.Point(85, 125), "Link:")
+SubmitButton = graphics.Rectangle(graphics.Point(200, 150), graphics.Point(250, 175))
+SubmitButtonLabel = graphics.Text(graphics.Point(225, 162), "Enter")
+
+inputs = [graphics.Entry(graphics.Point(200, 25), 20), graphics.Entry(graphics.Point(200, 75), 20), graphics.Entry(graphics.Point(200, 125), 20)]
+
+for i in inputs:
+    i.setFill('#D3D3D3')
+    i.draw(win)
+
+SubmitButton.setFill('#D3D3D3')
+SubmitButton.draw(win)
+SubmitButtonLabel.draw(win)
+domain.draw(win)
+EmailLabel.draw(win)
+PasswordLabel.draw(win)
+LinkLabel.draw(win)
+
+
+# Get input from user
+while True:
+    click = win.getMouse()
+    if abs(click.getX() - 225) <= 25 and abs(click.getY() - 163) <= 13:
+
+        SubmitButton.setFill('gray')
+        time.sleep(0.05)
+
+        email = inputs[0].getText() + domain.getText()
+        password = inputs[1].getText()
+        link = inputs[2].getText()
+
+        SubmitButton.setFill('#D3D3D3')
+        time.sleep(0.1)
+
+        win.close()
+        break
 
 # Navigate to the page
 driver = webdriver.Chrome('chromedriver.exe')
