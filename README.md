@@ -1,8 +1,10 @@
 # RewritesFormatter
- Formats Psych Rewrites (Cuts down about 30 mins of work)
- 
- You need google Chrome and Python 3 to run this
+Formats Psych Rewrites (Cuts down about 30 mins of work)
 
-Don't forget to install selenium. You can do that using 'pip install selenium'
+Requirements:
+Latest version of Google Chrome
+
+Instructions:
+Download dist.zip, extract, and run PsychRewritesFormatter.exe
 
 DISCLAIMER: I do not own Chrome, Chromedriver, Python, or Selenium. Please don't sue me.
