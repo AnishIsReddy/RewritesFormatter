@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 import graphics
-import math
+import sys
 
 # Create input window
 win = graphics.GraphWin(title="Rewrites Input", width=500, height=200)
@@ -50,6 +50,7 @@ while True:
 
 # Navigate to the page
 driver = webdriver.Chrome('chromedriver.exe')
+
 driver.get("https://novi.schoology.com/home#/?_k=io2lml")
 driver.find_element(By.ID, 'identifierId').send_keys(email + Keys.ENTER)
 time.sleep(2)
@@ -65,11 +66,13 @@ questions = []
 for i in driver.find_elements(By.CLASS_NAME, "lrn_stimulus_content"):
     questions.append(i.text)
 
-# Get all possible answers and their correction st
+# Get all possible answers and their correction stats
 answers = []
 for i in driver.find_elements(By.CLASS_NAME, "lrn-accessibility-label"):
     val = i.get_attribute('innerHTML').split(" - ")
     answers = answers + [val]
+
+driver.quit()
 
 # Compile output
 out = []
@@ -115,4 +118,5 @@ for i in range(len(answers)):
 f = open('output.txt', 'w')
 f.writelines(out[2:])
 f.close()
-exit()
+
+sys.exit(0)
