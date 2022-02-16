@@ -1,3 +1,4 @@
+del dist.zip
 pyinstaller -F -w --clean PsychRewritesFormatter.py
 copy chromedriver.exe dist\chromedriver.exe
 powershell Compress-Archive -Update dist dist.zip
